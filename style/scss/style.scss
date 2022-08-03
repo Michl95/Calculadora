@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100;300;400;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Exo', monospace;
+}
+
+
+/*-----------------------Variables---------*/
+
+$erieBlack:#1B1B1E;
+$background:#373F51;
+$cadetBlue:#58A4B0;
+$cadetBlueDarker:#335f65;
+$lightSteelBlue:#A9BCD0;
+$white-ish:#D8DBE2;
+
+/*-----------------------------------------*/
+
+body {
+    background: $background;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .calcultor_container {
+        height: 32rem;
+        background: $cadetBlue;
+        padding: 1rem;
+        border-radius: 2rem;
+        box-shadow: 15px 10px 0 5px $erieBlack;
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 70px);
+            grid-template-rows: 150px repeat(5, 60px);
+            .calculator_screen {
+                grid-column: 1 / -1;
+                padding: 1rem;
+                display: flex;
+                margin: 10px 15px 15px 15px;
+                flex-direction: column;
+                align-items: flex-end;
+                background: $erieBlack;
+                color: white;
+                border-radius: 1.5rem;
+                justify-content: space-between;
+                text-align: right;
+                box-shadow: 0 0 0 5px $cadetBlueDarker;
+                #currentValue {
+                    font-size: 1.5rem;
+                }
+                #previousValue {
+                    font-size: 2rem;
+                }
+            }
+            button {
+                cursor: pointer;
+                margin: .25rem;
+                border-radius: 1rem;
+                font-size: 1.5rem;
+                background: $cadetBlue;
+                box-shadow: 5px 5px 10px -3px $erieBlack, -5px -5px 15px -3px #95cdd764;
+                &:active {
+                    background: $cadetBlueDarker;
+                }
+            }
+            .col-2 {
+                grid-column: span 2;
+            }
+        }
+    }
+}
