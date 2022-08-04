@@ -11,14 +11,20 @@
 }
 
 
-/*-----------------------Variables---------*/
+/*-----------------------variables---------*/
 
 $erieBlack:#1B1B1E;
 $background:#373F51;
 $cadetBlue:#58A4B0;
 $cadetBlueDarker:#335f65;
 $lightSteelBlue:#A9BCD0;
+$pinky:#DDBDD5;
 $white-ish:#D8DBE2;
+$beige:#EFF0D1;
+$greenie:#77BA99;
+$vermelion:#D33F49;
+$purple:#5D5179;
+$violet:#381432;
 
 /*-----------------------------------------*/
 
@@ -26,8 +32,58 @@ body {
     background: $background;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 1s ease;
+    header{
+        width: 100%;
+        img{
+            width: 6rem;
+            margin-left: 3rem;
+        }
+    }
+    .userOptions{
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        .userOptions_container{
+            position: relative;
+            width: 3rem;
+            height: 1.5rem;
+
+            .switchOn{
+                cursor: pointer;
+                & > rect{
+                    fill: $lightSteelBlue;
+                }
+                & > .off{
+                    display: none;
+                }
+                & > circle{
+                    transform: translateX(0);
+                    transition: .5s ease;
+                }
+            }
+
+            .switchOff{
+                cursor: pointer;
+                & > rect{
+                    fill: $vermelion;
+                }
+                & > .on{
+                    display: none;
+                }
+                & > circle{
+                    transform: translateX(-20px);
+                    transition: .5s ease;
+                }
+                .off{
+                    display: block;
+                }
+            }
+        }
+    }
     .calcultor_container {
         height: 32rem;
         background: $cadetBlue;
@@ -39,6 +95,7 @@ body {
             grid-template-columns: repeat(4, 70px);
             grid-template-rows: 150px repeat(5, 60px);
             .calculator_screen {
+                color: #77BA99;
                 grid-column: 1 / -1;
                 padding: 1rem;
                 display: flex;
@@ -53,17 +110,20 @@ body {
                 box-shadow: 0 0 0 5px $cadetBlueDarker;
                 #currentValue {
                     font-size: 1.5rem;
+                    color: $greenie;
                 }
                 #previousValue {
                     font-size: 2rem;
+                    color: $greenie;
                 }
             }
             button {
+                color: $erieBlack;
                 cursor: pointer;
                 margin: .25rem;
                 border-radius: 1rem;
                 font-size: 1.5rem;
-                background: $cadetBlue;
+                background: transparent;
                 box-shadow: 5px 5px 10px -3px $erieBlack, -5px -5px 15px -3px #95cdd764;
                 &:active {
                     background: $cadetBlueDarker;
@@ -71,6 +131,30 @@ body {
             }
             .col-2 {
                 grid-column: span 2;
+            }
+        }
+    }
+}
+.lightMode{
+    background: $white-ish;
+    transition: 1s ease;
+    .calcultor_container{
+        background: $pinky;
+        box-shadow: 15px 10px 0 5px $violet;
+        .calculator{
+            button{
+                &:active{
+                background: $purple;
+                }
+            }
+            .calculator_screen{
+                box-shadow: 0 0 0 5px $purple;
+                #currentValue{
+                    color: $vermelion;
+                }
+                #previousValue{
+                    color: $vermelion;
+                }
             }
         }
     }
